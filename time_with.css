@@ -1,0 +1,65 @@
+*{position: relative; margin: 0; padding: 0;list-style: none;}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/bg_morning.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.btn-group{
+    position: fixed;
+    bottom: 50px;
+    left:50px;
+    width: calc(100% - 100px);
+    display: flex;
+    z-index: 100;
+}
+.btn{
+    flex: 1;
+    cursor: pointer;
+    margin-right: 20px;
+    background: rgba(255, 255, 255, 0.57);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+}
+.btn:last-child{margin-right: 0;}
+.hand{
+    width: 800px; 
+    height: 500px;
+    position: fixed;
+    top:30vh;
+    right: 0;
+}
+.hand .time{
+    position: absolute;
+    width: 352px;
+    height: 200px;
+    top: 66px;
+    left: 90px;
+    z-index: 10;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    text-shadow: 0 0 5px black;
+}
+.hand .time span{}
+.hand .time .dot{padding: 0 10px;}
+.hand .time1{}
+.hand .time2{}
+.hand .time3{}
+.hand .img-group{}
+.hand .img-group img{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+}
+

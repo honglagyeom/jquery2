@@ -1,0 +1,85 @@
+
+
+/* 배경이미지 바뀌는 거 opacity사용해서 만들기*/
+*{position: relative; margin: 0; padding: 0;list-style: none;}
+body{overflow: hidden;}
+.bg-box{
+     overflow: hidden;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+.bg-box img{
+    position: absolute;
+    top:0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: 1s;
+    
+}
+.img-box{
+    overflow: hidden;
+    width:800px;
+    height: 500px;
+    position: fixed;
+    right: 0;
+    top: 30%;
+}
+.img-box img{
+    position: absolute;
+    width: 100%;
+    top:0;
+    bottom: 0px;
+    transition: 1s;
+}
+.img-box .img1{}
+.img-box .img2{}
+.img-box .img3{}
+.img-box .img4{}
+.img-box .time-box{
+    overflow: hidden;
+    font-family: 'Bungee Shade', cursive;
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    right: 50%;
+    top:20%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 80px;
+    color: white;
+    text-shadow: 0 0 5px rgba(39, 156, 242, 0.73), 0 0 10px rgba(88, 116, 234, 0.96);
+}
+.time-box .time{
+
+}
+
+.btn-box{
+    overflow: hidden;
+    position: fixed;
+    bottom:10px;
+    left:calc(50% - 40%);
+    width: 80%;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+.btn{
+    cursor: pointer;
+    text-indent: 30px;
+    width: 300px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.54);
+    margin-right: 10px;
+    line-height: 25px;
+    
+}
+.btn4{margin-right: 0;}

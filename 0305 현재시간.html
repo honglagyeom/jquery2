@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--    font-family: 'Open Sans', sans-serif;-->
+</head>
+<body>
+    
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    //객체(object)
+    //ex)event.~, Math.round, date()
+    var date = new Date(); //생성자 함수 (이름을 꼭 정해야함)
+    console.log(date)
+    date1= date.getFullYear() //현재 년도
+    date2= date.getMonth()    //현재 월 0,1,2,3,4,5,6,7,8,9,10,11
+    date3= date.getDay()      //요일 일0 월1 화2 수3 목4 금5 토6
+    date4= date.getDate()        //날짜
+    date5= date.getHours()       //시간
+    date6= date.getMinutes()     //분
+    date7= date.getSeconds()     //초
+
+    
+    ttt=date1+"년 / "+ date2 + "월 / "+ date3 + "요일 / " +date4+"일 / "+date5 + "시" + date6 + "분"+ date7 + "초"
+    
+    $("body").text(ttt)
+    
+    
+</script>

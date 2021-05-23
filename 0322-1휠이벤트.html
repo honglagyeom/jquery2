@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		*{position:relative; margin:0; padding:0;}
+		section{width:100%;height:100vh}
+		.section1{background-color:darkred}
+		.section2{background-color:cornflowerblue}
+		.section3{background-color:palevioletred}
+		.section4{background-color:greenyellow}
+		.section5{background-color:cadetblue}
+		section span{font-size:100px;color:white;}
+	</style>
+</head>
+<body>
+<div class="main">
+	<section class="section1"><span>1</span></section>
+	<section class="section2"><span>2</span></section>
+	<section class="section3"><span>3</span></section>
+	<section class="section4"><span>4</span></section>
+	<section class="section5"><span>5</span></section>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	var page_num=0;
+	$("html").scrollTop(0)
+	$("section").on("mousewheel", function(event){
+		event.preventDefault()	////기본이벤트 없애기
+	});
+$(window).on("mousewheel", function(event){
+	//console.log("wheel")
+	delta=event.originalEvent.wheelDelta;//-120 or 120 (휠방향을 확인할수 있다.)
+	win_height=$(window).height()//브라우저창 높이 구하기
+	html_moving=$("html").is(":animated")//html 애니메이팅을 가지고 있을때 : true
+	if(delta<0 && page_num<4 && !html_moving){
+		page_num++;
+		$("html").stop().animate({scrollTop:win_height*page_num})
+	}
+	else if(delta>0 && page_num>0 && !html_moving){
+		page_num--;
+		$("html").stop().animate({scrollTop:win_height*page_num})
+	}
+	console.log(page_num)
+})
+</script>

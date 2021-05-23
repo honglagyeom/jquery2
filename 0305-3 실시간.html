@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*다운받은 웹폰트 사용방법*/
+        @font-face {
+            font-family: digital;
+            src: url(digital/DS-DIGIB.TTF) format("truetype");
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            font-weight: 900;
+        }
+        body{
+            background: black;
+        }
+        h1{text-align: center;color: white;}
+        .box{
+            width: 600px; margin:0 auto;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+            text-shadow: 0 0 5px #0066ff, 0 0 10px rgba(0,200,200,1);
+        }
+        .date{
+            font-size: 50px; text-align: center;
+            font-weight: 900;
+        }
+        .date1{}
+        .date2{}
+    
+        .time {
+            font-family: "digital";
+            font-size: 100px;
+            text-align: center;
+        }
+        
+        @keyframes dot{
+            0%{opacity: 0;}
+            50%{opacity: 1;}
+            100%{opacity: 0;}
+        }
+        
+        .dot{
+            animation: dot 0.9s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>현재시간 알아 보기</h1>
+    <div class="box">
+        <div class="date">
+            <span class="date1">요일</span>
+            <span class="date2">일</span>
+            <span class="date3">달</span>
+            <span class="date4">년도</span>
+        </div>
+        <div class="time">
+            <span class="time time1">시간</span>
+            <span class="dot">:</span>
+            <span class="time time2">분</span>
+            <span class="dot">:</span>
+            <span class="time time3">초</span>
+        </div>
+
+    </div>
+</body></html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    /*초기값*/
+    var date=new Date();
+    time1= date.getHours();
+    time2=  date.getMinutes()
+    time3= date.getSeconds();
+    $(".time1").text(time1)
+    $(".time2").text(time2)
+    $(".time3").text(time3)
+
+    
+    /*set인터벌은 1초뒤부터 실행됨*/
+    setInterval(timer,1000)
+    function timer(){
+        date=new Date();
+        time1= date.getHours();
+        time2=  date.getMinutes()
+        time3= date.getSeconds();
+        
+        if(time3<10){ //0,1,2,3,4,5,6,7,8,9인경우
+            $(".time3").text("0"+time3);   
+        } else{
+            $(".time3").text(time3)
+        }
+        if(time2<10){
+            $(".time2").text("0"+time2);
+        } else{
+            $(".time2").text(time2);
+        }
+        if(time1<10){
+            $(".time1").text("0"+time1)   
+        } else{
+            $(".time1").text(time1)
+        }
+       
+    }
+    
+
+    date1 = date.getDay()       //요일
+    date2 = date.getDate()      //날짜
+    date3 = date.getMonth()     //월
+    date4 = date.getFullYear()  //년
+    
+    //dayday="주말";
+    
+    day   =["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+    mon   =["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+    console.log(day[date1])
+    console.log(mon[date3]) //확인
+    //text(배열이름[인덱스순번])
+    $(".date1").text(day[date1])
+    $(".date2").text(date2)
+    $(".date3").text(mon[date3])
+    $(".date4").text(date4)
+    
+//    변수=3
+//    배열=["ㄴㄴㄴ",33,]
+//    객체{}
+    
+//    if(date1==0){
+//        $(".date1").text("일요일")
+//    }else if (date1==1){
+//        $(".date1").text("월요일")  
+//    }else if (date1==2){
+//        $(".date1").text("화요일")  
+//    }else if (date1==3){
+//        $(".date1").text("수요일")  
+//    }else if (date1==4){
+//        $(".date1").text("목요일")  
+//    }else if (date1==5){
+//        $(".date1").text("금요일")  
+//    }else if (date1==6){
+//        $(".date1").text("토요일")  
+//    }
+    
+
+</script>
+
+
+
+
+
+
+
+
+

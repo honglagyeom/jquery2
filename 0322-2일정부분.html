@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		*{position:relative; padding:0; margin:0}
+		body{height:5000px}
+		section{width:800px; height:500px;position:fixed; top:20%;
+			border:10px solid black; overflow:hidden}
+		.page{width:100%; height:100%; position:absolute; left:0; top:0;}
+		.page1{background-color:rgba(255, 50, 10, 0.5)}
+		.page2{background-color:rgba(200, 100, 50, 0.5)}
+		.page3{background-color:rgba(150, 150, 200, 0.5)}
+		.page4{background-color:rgba(100, 200, 200, 0.5)}
+		.page5{background-color:rgba(50, 250, 0, 0.5)}
+	</style>
+</head>
+<body>
+<section class="wheel_section">
+	<div class="page page1">1</div>
+	<div class="page page2">2</div>
+	<div class="page page3">3</div>
+	<div class="page page4">4</div>
+	<div class="page page5">5</div>
+</section>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	var active_num=0;
+
+	active_page=$(".page").eq(active_num);
+	active_page.stop().animate({top:0})
+	active_page.nextAll().stop().animate({top:100+"%"})
+	active_page.prevAll().stop().animate({top:-100+"%"})
+
+	$(".wheel_section").on("mousewheel",function(event){
+		event.preventDefault()//휠섹션에서 기본값없애기
+		delta=event.originalEvent.wheelDelta;
+		page_moving=$(".page").is(":animated")//움직임을 가지고 있다=true
+		if(delta < 0 && active_num < 4 && !page_moving){
+			active_num++;
+			console.log(active_num)
+			active_page=$(".page").eq(active_num);
+			active_page.stop().animate({top:0})
+			active_page.nextAll().stop().animate({top:100+"%"})
+			active_page.prevAll().stop().animate({top:-100+"%"})
+		}else if(delta > 0 && active_num > 0 && !page_moving){
+			active_num--;
+			console.log(active_num)
+			active_page=$(".page").eq(active_num);
+			active_page.stop().animate({top:0})
+			active_page.nextAll().stop().animate({top:100+"%"})
+			active_page.prevAll().stop().animate({top:-100+"%"})
+		}
+	})
+
+
+</script>
